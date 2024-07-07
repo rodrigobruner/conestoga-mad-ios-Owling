@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 
 let categoryDefaultName = "Select a category"
+let categoryDefaultValeu = "Uncategorized"
 
 struct Category: Codable{
     var name:String = categoryDefaultName

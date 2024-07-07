@@ -15,12 +15,15 @@ class SettingsViewController: UIViewController {
     
     var models : [Section] = [Section]()
     
-    
+    var settings:Settings = loadSettings()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.settings = loadSettings()
+        
+        print(self.settings)
+        
         config()
     
         let appName = Bundle.main.infoDictionary!["CFBundleName"] as! String
@@ -33,24 +36,53 @@ class SettingsViewController: UIViewController {
   
     func config(){
         models.append(Section(title: "Presentation", options: [
-            SettingsOption(title: "Order by date due", icon: UIImage(systemName: "date"), iconBackgroundColor: .red, handler: {
-                    print("01")
-            }),
-            SettingsOption(title: "Order by category", icon: UIImage(systemName: "house"), iconBackgroundColor: .red, isASwitch:true, isOn:true, handler: {
-                print("02")
-            }),
+            SettingsOption(
+                title: "Grouped by category",
+                icon: UIImage(systemName: "rectangle.3.group.fill"),
+                iconBackgroundColor: UIColor.blue,
+                isASwitch:true,
+                isOn:self.settings.grupedByCategory,
+                handler: {
+                    self.settings.grupedByCategory = !self.settings.grupedByCategory
+                    print("Config")
+                    print(self.settings)
+                    saveSettings(self.settings)
+                    if let vc = self.storyboard?.instantiateViewController(identifier: "taskList") as? ViewController {
+                        vc.viewDidLoad()
+                        vc.viewWillAppear(true)
+                    }
+                })
         ]))
         
-        models.append(Section(title: "List", options: [
-            SettingsOption(title: "Order by date due", icon: UIImage(systemName: "date"), iconBackgroundColor: .red, handler: {
-                print("03")
-            }),
-           SettingsOption(title: "Order by category", icon: UIImage(systemName: "house"), iconBackgroundColor: .red,  isASwitch:true, isOn:false, handler: {
-                print("04")
-            }),
+        models.append(Section(title: "System", options: [
+            SettingsOption(title: "Clear data", icon: UIImage(systemName: "trash"), iconBackgroundColor: .red, handler: {
+                    let alertController = UIAlertController(title: "This action will delete all saved data and restore the default data.", message: "This action will delete all saved data", preferredStyle: .alert)
+
+                    let noAction = UIAlertAction(title: "Do not delete the data.", style: .default) { _ in
+                        // Handle OK button tap
+                    }
+                    
+                    let yesAction = UIAlertAction(title: "Yes, I want to delete the data", style: .destructive) { _ in
+                        deleteTodoList()
+                        deleteSettings()
+                        self.reNewApp()
+                    }
+
+                    alertController.addAction(noAction)
+                    alertController.addAction(yesAction)
+
+                    self.present(alertController, animated: true, completion: nil)
+                }),
         ]))
     }
+    
+    func reNewApp(){
+           //reload application data (renew root view )
+        UIApplication.shared.keyWindow?.rootViewController = storyboard!.instantiateViewController(withIdentifier: "rootView")
+       }
 }
+
+
 
 
 
@@ -87,6 +119,8 @@ extension SettingsViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = models[indexPath.section].options[indexPath.row]
-        option.handler()
+        if !option.isASwitch {
+            option.handler()
+        }
     }
 }

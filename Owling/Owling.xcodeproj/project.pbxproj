@@ -15,6 +15,8 @@
 		0586967D2C3330D400520563 /* TodoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586967C2C3330D400520563 /* TodoFormViewController.swift */; };
 		0596D8572C2F3EC9001633E3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0596D8562C2F3EC9001633E3 /* Color.swift */; };
 		05A0AEFF2C32061700EF5E66 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0AEFE2C32061700EF5E66 /* TodoViewController.swift */; };
+		05AE32CE2C3B030000629BE6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AE32CD2C3B030000629BE6 /* Settings.swift */; };
+		05AE32D42C3B536800629BE6 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AE32D32C3B536800629BE6 /* TodoTableViewController.swift */; };
 		05C1A3F92C2B77930047674D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C1A3F82C2B77930047674D /* AppDelegate.swift */; };
 		05C1A3FB2C2B77930047674D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C1A3FA2C2B77930047674D /* SceneDelegate.swift */; };
 		05C1A3FD2C2B77930047674D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C1A3FC2C2B77930047674D /* ViewController.swift */; };
@@ -56,6 +58,8 @@
 		0586967C2C3330D400520563 /* TodoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoFormViewController.swift; sourceTree = "<group>"; };
 		0596D8562C2F3EC9001633E3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		05A0AEFE2C32061700EF5E66 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		05AE32CD2C3B030000629BE6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		05AE32D32C3B536800629BE6 /* TodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
 		05C1A3F52C2B77930047674D /* Owling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C1A3F82C2B77930047674D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05C1A3FA2C2B77930047674D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				0585D7B02C2E10DD0058F188 /* SettingsViewController.swift */,
 				05A0AEFE2C32061700EF5E66 /* TodoViewController.swift */,
 				0586967C2C3330D400520563 /* TodoFormViewController.swift */,
+				05AE32D32C3B536800629BE6 /* TodoTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				05C1A4612C2BA22A0047674D /* Todo.swift */,
 				05C1A4632C2BA3BC0047674D /* Category.swift */,
 				0585D7B32C2E138C0058F188 /* SettingsOption.swift */,
+				05AE32CD2C3B030000629BE6 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -341,9 +347,11 @@
 				05A0AEFF2C32061700EF5E66 /* TodoViewController.swift in Sources */,
 				05F15C6A2C3495B600BAFCF3 /* CategoryTableViewCell.swift in Sources */,
 				05C1A4642C2BA3BC0047674D /* Category.swift in Sources */,
+				05AE32D42C3B536800629BE6 /* TodoTableViewController.swift in Sources */,
 				053405392C32F4D40080B794 /* UITextView.swift in Sources */,
 				0585D7B12C2E10DD0058F188 /* SettingsViewController.swift in Sources */,
 				05C1A3F92C2B77930047674D /* AppDelegate.swift in Sources */,
+				05AE32CE2C3B030000629BE6 /* Settings.swift in Sources */,
 				050720CA2C2DD1E3001D2A60 /* TodoTableViewCell.swift in Sources */,
 				05E3EEE42C2F65BA003B4519 /* Date.swift in Sources */,
 				05C1A3FB2C2B77930047674D /* SceneDelegate.swift in Sources */,

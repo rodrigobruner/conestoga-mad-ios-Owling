@@ -7,8 +7,6 @@
 
 import Foundation
 
-let defaultDateFormat = "E, d MMM yyyy HH:mm"
-
 func daysUntilDate(_ date: Date) -> Int? {
     let calendar = Calendar.current
     let now = Date()

@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 struct SettingsOption {
-    let title:String
-    let icon:UIImage?
-    let iconBackgroundColor: UIColor
+    var title:String
+    var icon:UIImage? = nil
+    var iconBackgroundColor: UIColor? = nil
     var isASwitch: Bool = false
     var isOn: Bool = false
-    let handler: (()->Void)
+    var handler: (()->Void)
 }
 
 struct Section{

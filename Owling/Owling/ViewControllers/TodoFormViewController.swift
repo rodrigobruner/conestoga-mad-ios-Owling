@@ -24,6 +24,7 @@ class TodoFormViewController: UIViewController {
     
     @IBOutlet weak var buttonAction: UIButton!
     
+    var settings:Settings = loadSettings()
     
     //Start Select category
     let transparentView = UIView()
@@ -137,7 +138,7 @@ class TodoFormViewController: UIViewController {
     
     @objc func donePressed() {
         let dataFormatter = DateFormatter()
-        dataFormatter.dateFormat = defaultDateFormat
+        dataFormatter.dateFormat = settings.defaultDateFormat
         
         self.textDueDate.text = dataFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -161,17 +162,17 @@ class TodoFormViewController: UIViewController {
             todo = Todo(title: title!, description: description, category: category, isImportant: isImportant)
         } else {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = defaultDateFormat
+            dateFormatter.dateFormat = settings.defaultDateFormat
             let dueDate = dateFormatter.date(from:dueDateText)!
             todo = Todo(title: title!, description: description, category: category, dueDate: dueDate, isImportant: isImportant)
         }
-        
-        
+                
         if let vc = storyboard?.instantiateViewController(identifier: "taskList") as? ViewController {
-            vc.todoList.append(todo)
-            vc.tableView.reloadData()
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc.addNewTodo(todo)
+            vc.viewDidLoad()
         }
+        self.tabBarController!.selectedIndex = 0
+        print("OK")
         
     }
     

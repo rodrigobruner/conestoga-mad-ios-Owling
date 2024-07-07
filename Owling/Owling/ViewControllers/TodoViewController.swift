@@ -8,7 +8,6 @@
 import UIKit
 
 class TodoViewController: UIViewController {
-
     
     @IBOutlet weak var labelTitle: UILabel!
 
@@ -26,7 +25,6 @@ class TodoViewController: UIViewController {
     
     @IBOutlet weak var labelImportant: UILabel!
     
-    
     var showTitle:String = ""
     var showDescription = ""
     var category = Category()
@@ -40,7 +38,7 @@ class TodoViewController: UIViewController {
         super.viewDidLoad()
         
         //Title
-        labelTitle.text = showTitle
+        labelTitle?.text = showTitle
         if self.isComplete {
             
             labelTitle.tintColor = UIColor.gray
@@ -53,18 +51,18 @@ class TodoViewController: UIViewController {
         
         //Description
 //        adjustUITextViewHeight(arg: self.textViewDescription)
-        textViewDescription.text = showDescription
+        textViewDescription?.text = showDescription
         
         
         //Important
         if self.isImportant {
             //Icon status
-            iconStatus.image = UIImage(systemName: "exclamationmark.circle.fill")
-            iconStatus.tintColor = .red
+            iconStatus?.image = UIImage(systemName: "exclamationmark.circle.fill")
+            iconStatus?.tintColor = .red
 
         } else {
-            iconStatus.removeFromSuperview()
-            labelImportant.removeFromSuperview()
+            iconStatus?.removeFromSuperview()
+            labelImportant?.removeFromSuperview()
         }
         
         
@@ -79,12 +77,12 @@ class TodoViewController: UIViewController {
             labelCategory.layer.masksToBounds = true
             labelCategory.layer.cornerRadius = 5
         } else {
-            labelCategory.removeFromSuperview()
+            labelCategory?.removeFromSuperview()
         }
         
-        labelDueDate.text = showDueDate
-        labelCreateAt.text = showCreateAt
-        labelCompletedAt.text = showCompleteAt
+        labelDueDate?.text = showDueDate
+        labelCreateAt?.text = showCreateAt
+        labelCompletedAt?.text = showCompleteAt
         
     }
 }

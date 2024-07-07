@@ -15,18 +15,31 @@ class SettingsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelSetting: UILabel!
     
+    var settingOprion:SettingsOption = SettingsOption(title: "", handler: {})
+    
     var isASwitch:Bool = false
+    
+    
+    @objc func switchValueChanged(_ sender: UISwitch) {
+        settingOprion.handler()
+    }
+    
     
     private let mySwitch:UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemBlue
+        mySwitch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
         return mySwitch
     }()
     
     func set(option: SettingsOption){
+        
+        settingOprion = option
+        
         labelSetting.text = option.title
         iconImageView.image = option.icon
         iconContainer.backgroundColor = option.iconBackgroundColor
+        
         isASwitch = option.isASwitch
         if isASwitch {
             mySwitch.isOn = option.isOn
